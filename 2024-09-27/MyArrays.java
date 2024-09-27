@@ -19,7 +19,18 @@ public class MyArrays {
   }
    
   public static int[] concatArray(int[] ary1,int[] ary2) {
-     return ary1;
+     int[] returnary = new int[ary1.length + ary2.length];
+     int idx = 0;
+     // add ary1 values
+     for (int i = 0; i < ary1.length; i++) {
+        returnary[i] = ary1[i];
+     }
+     // add ary2 values
+     for (int i = ary1.length; i < returnary.length; i++) {
+        returnary[i] = ary2[idx];
+        idx++;
+     }
+     return returnary;
   }
    
   public static void main(String[] args) {
