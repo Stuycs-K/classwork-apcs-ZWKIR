@@ -13,5 +13,7 @@ public class MyArrays {
   public static void main(String[] args) {
     int[] arr = new int[] {1, 2, 3};
     System.out.println("Expected [1, 2, 3], recieved " + arrayToString(arr));
+    int[] arr2 = new int[] {};
+    System.out.println("Expected [], recieved " + arrayToString(arr2));
   }
 }
