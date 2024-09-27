@@ -7,10 +7,11 @@ public class MyArrays {
         returnStr += ", ";
       }
     }
-    return returnStr;
+    return returnStr + "]";
   }
 
   public static void main(String[] args) {
-    System.out.println("N/a");
+    int[] arr = new int[] {1, 2, 3};
+    System.out.println("Expected [1, 2, 3], recieved " + arrayToString(arr));
   }
 }
