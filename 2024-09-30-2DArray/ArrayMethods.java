@@ -46,25 +46,25 @@ public static int[][] swapRC(int[][]nums){
 }
 
 public static void main(String[] args) {
-  int [][] arr = new int{{1, 4},{2, 5},{3, 6}};
+  int [][] arr = new int[[1, 4],[2, 5],[3, 6]];
   System.out.println("Expected: {{1,4},{2,5},{3,6}}" + ", Received: " + arrToString(arr));
-  int [][] arr = new int{{-3, 5, 0},{1}};
+  int [][] arr = new int[[-3, 5, 0],[1]];
   System.out.println("Expected: {{-3, 5, 0},{1}}" + ", Received: " + arrToString(arr));
-  int [][] arr = new int{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
+  int [][] arr = new int[[7, 8, -9],[100000, 1, 3, 4, 2],[]];
   System.out.println("Expected: {{7, 8, -9},{100000, 1, 3, 4, 2},{}}" + ", Received: " + arrToString(arr));
 
-  int [][] arr = new int{{1, 4},{2, 5},{3, 6}};
+  int [][] arr = new int[[1, 4],[2, 5],[3, 6]];
   System.out.println("Expected: 21" + ", Received: " + arr2DSum(arr));
-  int [][] arr = new int{{-3, 5, 0},{1}};
+  int [][] arr = new int[[-3, 5, 0],[1]];
   System.out.println("Expected: 3" + ", Received: " + arr2DSum(arr));
-  int [][] arr = new int{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
+  int [][] arr = new int[[7, 8, -9],[100000, 1, 3, 4, 2],[]];
   System.out.println("Expected: 100016" + ", Received: " + arr2DSum(arr));
 
-  int [][] arr = new int{{1, 4},{2, 5},{3, 6}};
+  int [][] arr = new int[[1, 4],[2, 5],[3, 6]];
   System.out.println("Expected: {{1, 4, 2}, {5, 3, 6}}" + ", Received: " + swapRC(arr));
-  int [][] arr = new int{{-3, 5},{1, 2}};
+  int [][] arr = new int[[-3, 5],[1, 2]];
   System.out.println("Expected: {{-3, 5},{1, 2}}" + ", Received: " + swapRC(arr));
-  int [][] arr = new int{{7, 8, -9},{100000, 1, 3}};
+  int [][] arr = new int[[7, 8, -9],[100000, 1, 3]];
   System.out.println("Expected: {{7, 8}, {-9, 100000}, {1, 3}}" + ", Received: " + swapRC(arr));
 }
 }
