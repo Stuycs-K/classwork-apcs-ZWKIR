@@ -56,8 +56,8 @@ public static int arr2DSum(int[][] nums){
   */
 public static int[][] swapRC(int[][] nums) {
   int[][] ary = new int[nums.length][nums[0].length];
-  for (int i = 0; i < nums.length; i++) {
-    for (int i2 = 0; i2 < nums[0].length; i2++) {
+  for (int i = 0; i < nums[0].length; i++) {
+    for (int i2 = 0; i2 < nums.length; i2++) {
       ary[i2][i] = nums[i][i2];
     }
   }
