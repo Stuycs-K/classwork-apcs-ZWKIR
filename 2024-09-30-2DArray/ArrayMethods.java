@@ -55,9 +55,11 @@ public static int arr2DSum(int[][] nums){
   * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   */
 public static int[][] swapRC(int[][] nums) {
-  int[][] ary = new int[nums.length][nums[0].length];
-  for (int i = 0; i < nums[0].length; i++) {
-    for (int i2 = 0; i2 < nums.length; i2++) {
+  int origRows = nums.length;
+  int origCols = nums[0].length;
+  int[][] ary = new int[origCols][origRows];
+  for (int i = 0; i < origRows; i++) {
+    for (int i2 = 0; i2 < nums[i].length; i2++) {
       ary[i2][i] = nums[i][i2];
     }
   }
@@ -108,7 +110,7 @@ public static void main(String[] args) {
   + "| Equals? " + (arrToString(swapRC(arr)).equals("[[1, 2, 3], [4, 5, 6]]")));
   arr = new int[][]{{-3, 5}, {1, 2}};
   System.out.println("Expected: [[-3, 1], [5, 2]], Received: " + arrToString(swapRC(arr))
-  + "| Equals? " + (arrToString(swapRC(arr)).equals("[[1, 2, 3], [4, 5, 6]]")));
+  + "| Equals? " + (arrToString(swapRC(arr)).equals("[[-3, 1], [5, 2]]")));
   arr = new int[][]{{7, 8, -9}, {100000, 1, 3}};
   System.out.println("Expected: [[7, 100000], [8, 1], [-9, 3]], Received: " + arrToString(swapRC(arr))
   + "| Equals? " + (arrToString(swapRC(arr)).equals("[[7, 100000], [8, 1], [-9, 3]]")));
