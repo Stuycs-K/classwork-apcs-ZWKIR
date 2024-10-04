@@ -92,7 +92,19 @@ public static void replaceNegative(int[][] vals){
 //You SHOULD write a helper method for this.
 //If you don't see a good way to do that, you should stop and look at prior methods.
 public static int[][] copy(int[][] nums){
-  return null;//placeholder so it compiles
+  int[][] ary = new int[nums.length][nums[0].length];
+  for (int i = 0; i < nums.length; i++) {
+    ary[i] = helper(nums[i]);
+  }
+  return ary; //placeholder so it compiles
+}
+
+public static int[] helper(int[] ary) {
+  int[] ary1 = new int[ary.length];
+  for (int i = 0; i < ary.length; i++) {
+    ary1[i] = ary[i];
+  }
+  return ary1;
 }
 
 public static void main(String[] args) {
@@ -154,8 +166,27 @@ public static void main(String[] args) {
   + "| Equals? " + (arrToString(swapRC(arr)).equals("[[8, 8, 8], [8, 8, 8], [8, 8, 8]]")));
 
   //Tests for replaceNegative
+  System.out.println("\n---------TEST CASES FOR replaceNegative---------");
   arr = new int[][]{{1, 4}, {-2, -5}, {3, -6}};
   replaceNegative(arr);
   System.out.println("Expected: [[1, 4], [0, 1], [3, 0]], Received: " + arrToString(arr));
+  arr = new int[][]{{-3, 5}, {1, 2}};
+  replaceNegative(arr);
+  System.out.println("Expected: [[1, 5], [1, 2]], Received: " + arrToString(arr));
+  arr = new int[][]{{7, 8, -9}, {100000, 1, 3}};
+  replaceNegative(arr);
+  System.out.println("Expected: [[7, 8, 0], [100000, 1, 3]], Received: " + arrToString(arr));
+
+  //Tests for copy
+  System.out.println("\n---------TEST CASES FOR copy---------");
+  arr = new int[][]{{1, 4}, {-2, -5}, {3, -6}};
+  System.out.println("Expected: " + arrToString(arr) + ", Received: " + arrToString(copy((arr)))
+  + "| Equals? " + arr.equals(copy(arr)));
+  arr = new int[][]{{-3, 5}, {1, 2}};
+  System.out.println("Expected: " + arrToString(arr) + ", Received: " + arrToString(copy((arr)))
+  + "| Equals? " + arr.equals(copy(arr)));
+  arr = new int[][]{{7, 8, -9}, {100000, 1, 3}};
+  System.out.println("Expected: " + arrToString(arr) + ", Received: " + arrToString(copy((arr)))
+  + "| Equals? " + arr.equals(copy(arr)));
 }
 }
