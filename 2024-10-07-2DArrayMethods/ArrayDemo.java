@@ -1,49 +1,52 @@
 import java.util.Arrays;
+
 public class ArrayDemo{
-  public static void main(String[]args){
+  public static void main(String[] args){
     //write your tests here!
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
     System.out.println("---------TEST CASES FOR arrToString (1D)---------");
-    int [] arr1 = new int[]{1, 4, 2, 5};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    int[] arr1 = new int[]{1, 4, 2, 5};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
     arr1 = new int[]{-3, 5, 0};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
     arr1 = new int[]{7, 8, -9, 100000, 1, 3, 4, 2};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
-    arr1 = new int[]{5, 3, 2}, 4};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    arr1 = new int[]{5, 3, 2, 4};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
     arr1 = new int[]{94, 3323, 888, 3, 2, 2};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
     arr1 = new int[]{-13464, 2, 1093, 23234, 3};
-    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr1)
     + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
 
+
     System.out.println("---------TEST CASES FOR arrToString (2D)---------");
-    int [][] arr = new int[][]{{1, 4},{2, 5},{3, 6}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    int[][] arr = new int[][]{{1, 4},{2, 5},{3, 6}};
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
     arr = new int[][]{{-3, 5, 0},{1}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
     arr = new int[][]{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
     arr = new int[][]{{}, {5, 3, 2}, {4}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
     arr = new int[][]{{94, 3323, 888}, {3, 2, 2}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
     arr = new int[][]{{-13464, 2}, {1093, 23234, 3}};
-    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
-    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    System.out.println("Expected: " + Arrays.deepToString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deepToString(arr))));
+
 
     // Tests for countZeros2D
     System.out.println("\n---------TEST CASES FOR countZeros2D---------");
