@@ -66,7 +66,7 @@ public class ArrayDemo{
     // Tests for htmlTable
     System.out.println("\n---------TEST CASES FOR htmlTable---------");
     arr = new int[][]{{1, 4},{2, 5},{3, 6}};
-    str = "<table><tr><td>1</td><td>4</td></tr><tr><td>2</td><td>5</td></tr><tr><td>3</td><td>6</td></tr></table>";
+    String str = "<table><tr><td>1</td><td>4</td></tr><tr><td>2</td><td>5</td></tr><tr><td>3</td><td>6</td></tr></table>";
     System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
       + (htmlTable(arr).equals(str)));
     arr = new int[][]{{1,2},{3}};
@@ -78,7 +78,7 @@ public class ArrayDemo{
     System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
       + (htmlTable(arr).equals(str)));
     arr = new int[][]{{}, {5, 3, 2}, {4}};
-    str = "<table><tr></tr><tr><td>5</td><td>2</td><td>2</td></tr><tr><td>4</td></tr></table>";
+    str = "<table><tr></tr><tr><td>5</td><td>3</td><td>2</td></tr><tr><td>4</td></tr></table>";
     System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
       + (htmlTable(arr).equals(str)));
     arr = new int[][]{{94, 3323, 888}, {3, 2, 2}};
