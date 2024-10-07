@@ -5,7 +5,60 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    System.out.println("---------TEST CASES FOR arrToString (1D)---------");
+    int [] arr1 = new int[]{1, 4, 2, 5};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
+    arr1 = new int[]{-3, 5, 0};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
+    arr1 = new int[]{7, 8, -9, 100000, 1, 3, 4, 2};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
+    arr1 = new int[]{5, 3, 2}, 4};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
+    arr1 = new int[]{94, 3323, 888, 3, 2, 2};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
+    arr1 = new int[]{-13464, 2, 1093, 23234, 3};
+    System.out.println("Expected: " + Arrays.toString(arr1) + ", Received: " + arrToString(arr)1
+    + "| Equals? " + (arrToString(arr1).equals(Arrays.toString(arr1))));
 
+    System.out.println("---------TEST CASES FOR arrToString (2D)---------");
+    int [][] arr = new int[][]{{1, 4},{2, 5},{3, 6}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    arr = new int[][]{{-3, 5, 0},{1}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    arr = new int[][]{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    arr = new int[][]{{}, {5, 3, 2}, {4}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    arr = new int[][]{{94, 3323, 888}, {3, 2, 2}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+    arr = new int[][]{{-13464, 2}, {1093, 23234, 3}};
+    System.out.println("Expected: " + Arrays.deeptoString(arr) + ", Received: " + arrToString(arr)
+    + "| Equals? " + (arrToString(arr).equals(Arrays.deeptoString(arr))));
+
+    // Tests for countZeros2D
+    System.out.println("\n---------TEST CASES FOR countZeros2D---------");
+    arr = new int[][]{{1, 4},{2, 5},{3, 6}};
+    System.out.println("Expected: 0, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  0));
+    arr = new int[][]{{-3, 5, 0},{1}};
+    System.out.println("Expected: 1, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  1));
+    arr = new int[][]{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
+    System.out.println("Expected: 0, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  0));
+    arr = new int[][]{{}, {}, {}};
+    System.out.println("Expected: 0, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  0));
+    arr = new int[][]{{0}, {0, 0, 2}, {0, 0, 0, 0}};
+    System.out.println("Expected: 7, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  7));
+    arr = new int[][]{{-3}, {-5}, {8, 0}};
+    System.out.println("Expected: 1, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  1));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -37,7 +90,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int i2 = 0; i2 < nums[i].length; i2++) {
+        if (nums[i][i2] == 0) {
+          count++;
+        }
+      }
+    }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
