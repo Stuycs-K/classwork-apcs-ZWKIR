@@ -62,6 +62,33 @@ public class ArrayDemo{
     System.out.println("Expected: 7, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  7));
     arr = new int[][]{{-3}, {-5}, {8, 0}};
     System.out.println("Expected: 1, Received: " + countZeros2D(arr) + "| Equals? " + (countZeros2D(arr) ==  1));
+
+    // Tests for htmlTable
+    System.out.println("\n---------TEST CASES FOR htmlTable---------");
+    arr = new int[][]{{1, 4},{2, 5},{3, 6}};
+    str = "<table><tr><td>1</td><td>4</td></tr><tr><td>2</td><td>5</td></tr><tr><td>3</td><td>6</td></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
+    arr = new int[][]{{1,2},{3}};
+    str = "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
+    arr = new int[][]{{7, 8, -9},{100000, 1, 3, 4, 2},{}};
+    str = "<table><tr><td>7</td><td>8</td><td>-9</td></tr><tr><td>100000</td><td>1</td><td>3</td><td>4</td><td>2</td></tr><tr></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
+    arr = new int[][]{{}, {5, 3, 2}, {4}};
+    str = "<table><tr></tr><tr><td>5</td><td>2</td><td>2</td></tr><tr><td>4</td></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
+    arr = new int[][]{{94, 3323, 888}, {3, 2, 2}};
+    str = "<table><tr><td>94</td><td>3323</td><td>888</td></tr><tr><td>3</td><td>2</td><td>2</td></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
+    arr = new int[][]{{-13464, 2}, {1093, 23234, 3}};
+    str = "<table><tr><td>-13464</td><td>2</td></tr><tr><td>1093</td><td>23234</td><td>3</td></tr></table>";
+    System.out.println("Expected: " + str + ", Received: " + htmlTable(arr) + "| Equals? "
+      + (htmlTable(arr).equals(str)));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
