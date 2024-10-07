@@ -181,6 +181,14 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String str = "<table>";
+    for (int i = 0; i < nums.length; i++) {
+      str += "<tr>";
+      for (int i2 = 0; i2 < nums[i].length; i2++) {
+        str += "<td>" + nums[i][i2] + "</td>";
+      }
+      str += "</tr>";
+    }
+    return str + "</table>";
   }
 }
