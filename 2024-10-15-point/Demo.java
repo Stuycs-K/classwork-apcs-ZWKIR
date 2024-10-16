@@ -35,5 +35,9 @@ public class Demo{
     System.out.println( p1.distanceTo(p2));
     System.out.println( p2.distanceTo(p3));
     System.out.println( p1.distanceTo(p3));
+
+    Point t1 = new Point(0, 0);
+    Point t2 = new Point(1, 0);
+    Point t3 = new Point(0.5, Math.sqrt(3)/2);
   }
 }
