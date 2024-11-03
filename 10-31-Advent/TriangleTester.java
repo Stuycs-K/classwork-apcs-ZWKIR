@@ -17,6 +17,7 @@ public class TriangleTester {
     return count;
   }
 
+  // helper function for countTrianglesA
   public static boolean isTriangle(String lengths) {
     Scanner scan = new Scanner(lengths);
     int[] ary = new int[3];
