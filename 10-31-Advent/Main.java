@@ -25,7 +25,6 @@ public class Main {
       System.out.println(sum);
       */
 
-      /*
       Scanner sc1 = new Scanner("This is a bunch of words");
       while (sc1.hasNext()) {
         System.out.println(sc1.next());
@@ -37,9 +36,5 @@ public class Main {
         sum += sc2.nextDouble();
       }
       System.out.println(sum);
-      */
-
-      // Testing TriangleTester methods
-      System.out.println(TriangleTester.isTriangle("5 10 25"));
     }
 }

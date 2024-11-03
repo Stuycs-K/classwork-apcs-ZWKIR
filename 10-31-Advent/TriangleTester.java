@@ -1,7 +1,19 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
 public class TriangleTester {
   public static int countTrianglesA(String filename) {
     int count = 0;
+    try (Scanner file = new Scanner(new File(filename))) {
+      while (file.hasNextLine()) {
+        if (isTriangle(file.nextLine())) {
+          count++;
+        }
+      }
+    } catch (FileNotFoundException e)  {
+      System.err.println("File not found");
+    }
     return count;
   }
 
@@ -13,22 +25,17 @@ public class TriangleTester {
         ary[i] = Integer.parseInt(scan.next());
       }
     }
-    System.out.println(toString(ary));
-    return false;
+    return (ary[0] + ary[1] > ary[2] && ary[1] + ary[2] > ary[0] && ary[0] + ary[2] > ary[1]);
   }
 
   public static int countTrianglesB(String filename) {
     return 0;
   }
 
-  public static String toString(int[] nums) {
-    String returnStr = "[";
-    for (int i = 0; i < nums.length; i++) {
-      returnStr += nums[i];
-      if (i < nums.length - 1) {
-        returnStr += ", ";
-      }
-    }
-    return returnStr + "]";
+  public static void main(String[] args) {
+    // Tests
+    System.out.println(isTriangle("5 10 25")); // false
+    System.out.println(isTriangle("3 4 5")); // true
+    System.out.println(countTrianglesA("inputTri.txt")); // 2
   }
 }
