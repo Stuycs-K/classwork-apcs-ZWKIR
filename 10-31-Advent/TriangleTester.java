@@ -42,13 +42,22 @@ public class TriangleTester {
   }
 
   public static int countTrianglesB(String filename) {
+    int num = 0;
     try {
       Scanner scan = new Scanner(new File(filename));
       int[][] ary = new int[numLines(scan)][3];
+      while (scan.hasNextInt()) {
+        for (int i = 0; i < ary.length; i++) {
+          for (int j = 0; j < ary[i].length; i++) {
+              ary[i] = ary[i][j];
+            }
+          }
+        }
+      }
     } catch (FileNotFoundException e)  {
       System.err.println("File not found");
     }
-    return 0;
+    return num;
   }
 
   public static void main(String[] args) {
