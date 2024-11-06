@@ -49,6 +49,19 @@ public class TriangleTester {
             ary.add(ary2);
             scanned.close();
         }
+
+        for (int col = 0; col < 3; col++) {
+            int[] tri = new int[3];
+            for (int row = 0; row < ary.size(); row += 3) {
+                tri[0] = ary.get(row)[col];
+                tri[1] = ary.get(row + 1)[col];
+                tri[2] = ary.get(row + 2)[col];
+                String str = tri[0] + " " + tri[1] + " " + tri[2];
+                if (isTriangle(str)) {
+                    numTri++;
+                }
+            }
+        }
         scan.close();
     } catch (FileNotFoundException e) {
         System.err.println("File not found");
