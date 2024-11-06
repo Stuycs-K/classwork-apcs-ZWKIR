@@ -74,6 +74,6 @@ public class TriangleTester {
     System.out.println(isTriangle("5 10 25")); // false
     System.out.println(isTriangle("3 4 5")); // true
     System.out.println(countTrianglesA("inputTri.txt"));
-    System.out.println(countTrianglesB("inputTri.txt")); // 6 for first dataset
+    System.out.println(countTrianglesB("inputTri.txt")); // 6 or 95
   }
 }
