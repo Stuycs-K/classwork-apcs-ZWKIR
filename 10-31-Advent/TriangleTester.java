@@ -23,53 +23,53 @@ public class TriangleTester {
   public static boolean isTriangle(String lengths) {
     Scanner scan = new Scanner(lengths);
     int[] ary = new int[3];
-    while (scan.hasNextInt()) {
-      for (int i = 0; i < ary.length; i++) {
-        ary[i] = scan.nextInt();
-      }
+    for (int i = 0; i < ary.length && scan.hasNextInt(); i++) {
+      ary[i] = scan.nextInt();
     }
     scan.close();
     return (ary[0] + ary[1] > ary[2] && ary[1] + ary[2] > ary[0] && ary[0] + ary[2] > ary[1]);
   }
 
-  public static int numLines(Scanner scanned) {
+  public static int numLines(String file) {
     int count = 0;
-    while (scanned.hasNextLine()) {
-      scanned.nextLine();
-      count++;
+    try {
+      Scanner scanned = new Scanner(new File(file));
+      while (scanned.hasNextLine()) {
+        scanned.nextLine();
+        count++;
+      }
+      scanned.close();
+    } catch (FileNotFoundException e)  {
+      System.err.println("File not found");
     }
     return count;
   }
 
   public static int countTrianglesB(String filename) {
-    int num = 0;
+    int numTri = 0;
+    int numRow = numLines(filename);
     try {
       Scanner scan = new Scanner(new File(filename));
-      int[][] ary = new int[numLines(scan)][3];
-      while (scan.hasNextInt()) {
-        for (int i = 0; i < ary.length; i++) {
-          for (int j = 0; j < ary[i].length; i++) {
-              ary[i] = ary[i][j];
-            }
+      int[][] ary = new int[numRow][3];
+      for (int i = 0; i < numRow; i++) {
+        for (int j = 0; j < 3; i++) {
+          if (scan.hasNextInt()) {
+            ary[i][j] = scan.nextInt();
           }
         }
       }
+      scan.close();
     } catch (FileNotFoundException e)  {
       System.err.println("File not found");
     }
-    return num;
+    return numTri;
   }
 
   public static void main(String[] args) {
     // Tests
     System.out.println(isTriangle("5 10 25")); // false
     System.out.println(isTriangle("3 4 5")); // true
-    System.out.println(countTrianglesA("inputTri.txt")); // 2
-    try {
-      System.out.println(numLines(new Scanner(new File("inputTri.txt")))); // 99
-    } catch (FileNotFoundException e)  {
-      System.err.println("File not found");
-    }
-
+    System.out.println(countTrianglesA("inputTri.txt"));
+    System.out.println(numLines("inputTri.txt"));
   }
 }
