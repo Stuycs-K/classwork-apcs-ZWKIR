@@ -35,27 +35,26 @@ public class TriangleTester {
     int numTri = 0;
     ArrayList<int[]> ary = new ArrayList<>();
     try {
-      Scanner scan = new Scanner(new File(filename));
-      while (scan.hasNextInt()) {
-        int[] ary2 = new int[3];
-        for (int i = 0; i < 3; i++) {
-          if (scan.hasNextInt()) {
-            ary2[i] = scan.nextInt();
-          }
+        Scanner scan = new Scanner(new File(filename));
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
+            Scanner scanned = new Scanner(line);
+            int[] ary2 = new int[3];
+
+            for (int i = 0; i < 3; i++) {
+                if (scanned.hasNextInt()) {
+                    ary2[i] = scanned.nextInt();
+                }
+            }
+            ary.add(ary2);
+            scanned.close();
         }
-        ary.add(ary2);
-      }
-      scan.close();
-    } catch (FileNotFoundException e)  {
-      System.err.println("File not found");
+        scan.close();
+    } catch (FileNotFoundException e) {
+        System.err.println("File not found");
     }
     return numTri;
-  }
-
-  // helper function for countTrianglesB
-  public static boolean isTriangle(int[] lengths) {
-    return (lengths[0] + lengths[1] > lengths[2] && lengths[1] + lengths[2] > lengths[0] && lengths[0] + lengths[2] > lengths[1]);
-  }
+}
 
   public static void main(String[] args) {
     // Tests
