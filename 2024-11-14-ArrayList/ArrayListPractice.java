@@ -40,7 +40,7 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
   //If one list is longer than the other, just attach the remaining values to the end.
   ArrayList<String> ary = new ArrayList<String>();
   int max = Math.max(a.size(), b.size());
-  for (int i = 0; i < a.size(); i++) {
+  for (int i = 0; i < max; i++) {
     if (i < b.size()) {
       ary.add(b.get(i));
     }
