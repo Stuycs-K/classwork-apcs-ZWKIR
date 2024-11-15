@@ -38,10 +38,17 @@ public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String
   //return a new ArrayList that has all values of a and b in alternating order that is:
   //a[0], b[0], a[1], b[1]...
   //If one list is longer than the other, just attach the remaining values to the end.
-  return new ArrayList<String>();
+  ArrayList<String> ary = new ArrayList<String>();
+  int max = Math.max(a.size(), b.size());
+  for (int i = 0; i < a.size(); i++) {
+    if (i < b.size()) {
+      ary.add(b.get(i));
+    }
+    if (i < a.size()) {
+      ary.add(a.get(i));
+    }
+  }
+  return ary;
 }
-
-
-
 
 }
