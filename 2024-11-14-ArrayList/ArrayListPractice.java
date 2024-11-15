@@ -26,7 +26,12 @@ public class ArrayListPractice {
 
 public static ArrayList<String> makeReversedList( ArrayList<String> original){
   //return a new ArrayList that is in the reversed order of the original.
-  return new ArrayList<String>();
+  ArrayList<String> ary = new ArrayList<String>();
+  int size = original.size() - 1;
+  for (int i = size; i >= 0; i--) {
+    ary.add(original.get(i));
+  }
+  return ary;
 }
 
 public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){

@@ -8,6 +8,7 @@ public class Driver {
     //System.out.println(ArrayListPractice.createRandomArray(200000));
     ArrayListPractice.replaceEmpty(ary);
     System.out.println(ary);
+    System.out.println(ArrayListPractice.makeReversedList(ary));
   }
 
 
