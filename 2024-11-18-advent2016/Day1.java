@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Day1 {
-  public static String[] shortestDist(String filename) {
+  public static int shortestDist(String filename) {
     int yCount = 0;
     int xCount = 0;
     int deg = 0;
@@ -12,18 +12,33 @@ public class Day1 {
       if (file.hasNextLine()) {
         String[] ary = file.nextLine().split(", ");
         for (int i = 0; i < ary.length; i++) {
-          if (ary[i].substring(0,2).equals("R")) {
+          if (ary[i].substring(0,1).equals("R")) {
             deg += 90;
-            xCount += Integer.parseInt(ary[i].substring(1));
+          }
+          else {
+            deg -= 90;
+          }
+          deg = (deg + 360) % 360;
+          if (deg == 0) {
+            yCount += Integer.parseInt(ary[i].substring(1)); //N
+          }
+          else if (deg == 90) {
+            xCount += Integer.parseInt(ary[i].substring(1)); //E
+          }
+          else if (deg == 180) {
+            yCount -= Integer.parseInt(ary[i].substring(1)); //S
+          }
+          else if (deg == 270) {
+            xCount -= Integer.parseInt(ary[i].substring(1)); //W
           }
         }
-        return ary;
+        return Math.abs(xCount) + Math.abs(yCount);
       }
       file.close();
     } catch (FileNotFoundException e)  {
       System.err.println("File not found");
     }
-    return new String[2];
+    return 0;
   }
 
   public static String toString(String[] nums) {
@@ -39,6 +54,7 @@ public class Day1 {
 
   public static void main(String[] args) {
     // Tests
-    System.out.println(toString(shortestDist("day1.txt")));
+    //System.out.println(toString(shortestDist("day1.txt")));
+    System.out.println(shortestDist("day1.txt"));
   }
 }
