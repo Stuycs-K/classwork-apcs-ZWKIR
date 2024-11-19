@@ -1,22 +1,42 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
+import java.io.*;
 
 public class Day4 {
   public static boolean realRoom(String room) {
     int lastDashI = room.lastIndexOf('-');
     int checkSumI = room.indexOf('[');
     String roomName = room.substring(0, lastDashI);
+    //System.out.println(roomName);
     String sectorID = room.substring(lastDashI+1, checkSumI);
+    //System.out.println(sectorID);
     String sum = room.substring(checkSumI+1, room.length()-1);
+    //System.out.println(sum);
     roomName = roomName.replace("-", "");
     String checkSum = myCheckSum(roomName);
+    //System.out.println(roomName);
     return checkSum.equals(sum);
   }
 
   public static String myCheckSum(String check) {
-    return "";
+    String returnVal = "";
+    String letterStr = "";
+    String letter = check.substring(0,1);
+    for (int i = 0; i < check.length() - 1; i++) {
+      int count = 0;
+      while (check.substring(i, i+1).equals(letter)) {
+        count++;
+        i++;
+        System.out.println(check.substring(i, i+1));
+        System.out.println("Count: " + count);
+        System.out.println("Index: " + i);
+      }
+      returnVal = returnVal + letter + count;
+      letter = check.substring(i, i+1);
+      System.out.println(returnVal);
+      System.out.println("Letter: " + letter + "\n");
+      i--;
+    }
+    return returnVal;
   }
 
   public static int rooms(String filename) {
@@ -38,19 +58,9 @@ public class Day4 {
     return roomCount;
   }
 
-  public static String toString(String[] nums) {
-    String returnStr = "[";
-    for (int i = 0; i < nums.length; i++) {
-      returnStr += nums[i];
-      if (i < nums.length - 1) {
-        returnStr += ", ";
-      }
-    }
-    return returnStr + "]";
-  }
-
   public static void main(String[] args) {
-    System.out.println(realRoom("aaaaa-bbb-z-y-x-123[abxyz]"));
+    System.out.println(myCheckSum("aaaaabbbzyx"));
+    //System.out.println(realRoom("aaaaa-bbb-z-y-x-123[abxyz]"));
     //System.out.println(rooms("day4.txt"));
   }
 }
