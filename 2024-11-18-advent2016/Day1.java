@@ -41,20 +41,62 @@ public class Day1 {
     return 0;
   }
 
-  public static String toString(String[] nums) {
-    String returnStr = "[";
-    for (int i = 0; i < nums.length; i++) {
-      returnStr += nums[i];
-      if (i < nums.length - 1) {
-        returnStr += ", ";
+  public static int firstDoubleVisit(String filename) {
+    int xCount = 0, yCount = 0, deg = 0;
+    String[] place = new String[1000];
+    int placeI = 0;
+    place[placeI] = "0,0";
+    placeI++;
+
+    try {
+      Scanner file = new Scanner(new File(filename));
+      if (file.hasNextLine()) {
+        String[] ary = file.nextLine().split(", ");
+        for (int i = 0; i < ary.length; i++) {
+          if (ary[i].substring(0,1).equals("R")) {
+            deg += 90;
+          }
+          else {
+            deg -= 90;
+          }
+          deg = (deg + 360) % 360;
+
+          int val = Integer.parseInt(ary[i].substring(1));
+          for (int j = 0; j < val; j++) {
+            if (deg == 0) {
+              yCount++; //N
+            }
+            else if (deg == 90) {
+              xCount++; //E
+            }
+            else if (deg == 180) {
+              yCount--; //S
+            }
+            else if (deg == 270) {
+              xCount--; //W
+            }
+
+            String currCoor = xCount + "," + yCount;
+            for (int k = 0; k < placeI; k++) {
+              if (place[k].equals(currCoor)) {
+                return Math.abs(xCount) + Math.abs(yCount);
+              }
+            }
+            place[placeI++] = currCoor;
+          }
+        }
       }
+      file.close();
+    } catch (FileNotFoundException e) {
+      System.err.println("File not found");
     }
-    return returnStr + "]";
+    return 0;
   }
 
   public static void main(String[] args) {
     // Tests
-    //System.out.println(toString(shortestDist("day1.txt")));
-    System.out.println(shortestDist("day1.txt"));
+    //System.out.println(Array.toString(shortestDist("day1.txt")));
+    //System.out.println(shortestDist("day1.txt"));
+    System.out.println(firstDoubleVisit("day1.txt"));
   }
 }
