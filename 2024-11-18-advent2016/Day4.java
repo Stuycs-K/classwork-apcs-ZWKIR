@@ -19,48 +19,76 @@ public class Day4 {
 
   public static String myCheckSum(String check) {
     String returnVal = "";
-    String letterStr = "";
-    String letter = check.substring(0,1);
-    for (int i = 0; i < check.length() - 1; i++) {
-      int count = 0;
-      while (check.substring(i, i+1).equals(letter)) {
-        count++;
-        i++;
-        System.out.println(check.substring(i, i+1));
-        System.out.println("Count: " + count);
-        System.out.println("Index: " + i);
-      }
-      returnVal = returnVal + letter + count;
-      letter = check.substring(i, i+1);
-      System.out.println(returnVal);
-      System.out.println("Letter: " + letter + "\n");
-      i--;
+    char[] letters = new char[26];
+    int[] repeats = new int[26];
+    for (int i = 0; i < 26; i++) {
+      letters[i] = (char) ('a' + i);
+    }
+
+    for (int i = 0; i < check.length(); i++) {
+        char c = check.charAt(i);
+        repeats[c - 'a']++;
+    }
+
+    for (int i = 0; i < 26; i++) {
+        for (int j = i + 1; j < 26; j++) {
+            if (repeats[j] > repeats[i] || ((repeats[j] == repeats[i]) && (letters[j] < letters[i]))) {
+                int repeatsVal = repeats[i];
+                repeats[i] = repeats[j];
+                repeats[j] = repeatsVal;
+                char lettersVal = letters[i];
+                letters[i] = letters[j];
+                letters[j] = lettersVal;
+            }
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        if (repeats[i] > 0) {
+            returnVal += letters[i];
+        }
     }
     return returnVal;
   }
 
-  public static int rooms(String filename) {
-    int roomCount = 0;
-    try {
-      Scanner file = new Scanner(new File(filename));
-      while (file.hasNextLine()) {
-        String str = file.nextLine();
-        /*
-        if (realRoom(str)) {
-          roomCount += 1;
+  public static int charFreq(char c, String check) {
+    int count = 0;
+    for (int i = 0; i < check.length(); i++) {
+        if (c == check.charAt(i)) {
+            count++;
         }
-        */
-      }
-      file.close();
-    } catch (FileNotFoundException e)  {
-      System.err.println("File not found");
     }
-    return roomCount;
+    return count;
   }
 
+  public static int realRoomSum(String filename) {
+        int sum = 0;
+        try {
+            Scanner file = new Scanner(new File(filename));
+            while (file.hasNextLine()) {
+                String str = file.nextLine();
+                if (realRoom(str)) {
+                    int lastDashI = str.lastIndexOf('-');
+                    int checkSumI = str.indexOf('[');
+                    String sectorID = str.substring(lastDashI + 1, checkSumI);
+                    sum += Integer.parseInt(sectorID);
+                }
+            }
+            file.close();
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+        }
+        return sum;
+    }
+
   public static void main(String[] args) {
-    System.out.println(myCheckSum("aaaaabbbzyx"));
+    /*
+    System.out.println(charFreq('a', "aaaaabbbzyx")); //5
+    System.out.println(charFreq('b', "aaaaabbbzyx")); //3
+    System.out.println(charFreq('x', "aaaaabbbzyx")); //1
+    */
+    //System.out.println(myCheckSum("aaaaabbbzyx"));
     //System.out.println(realRoom("aaaaa-bbb-z-y-x-123[abxyz]"));
-    //System.out.println(rooms("day4.txt"));
+    System.out.println(realRoomSum("day4.txt"));
   }
 }
