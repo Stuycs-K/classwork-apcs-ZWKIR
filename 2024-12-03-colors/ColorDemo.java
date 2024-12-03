@@ -15,6 +15,7 @@ public class ColorDemo {
   }
 
   public static void drawFrog() {
-    System.out.println(color(35, 41, "m") + "This is a frog.");
+    color(35, 41, 4);
+    System.out.println("This is a frog.");
   }
 }
