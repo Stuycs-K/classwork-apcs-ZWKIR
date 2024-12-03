@@ -17,5 +17,11 @@ public class ColorDemo {
   public static void drawFrog() {
     color(35, 41, 4);
     System.out.println("This is a frog.");
+    for (int r = 0; r < 200; r++) {
+      for (int g = 0; g < 150; g++) {
+        color(35, 37, 1);
+        System.out.println("-");
+      }
+    }
   }
 }
