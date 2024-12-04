@@ -14,14 +14,17 @@ public class ColorDemo {
     System.out.print("\u001b[" + r + ";" + c + "f");
   }
 
-  public static void drawFrog() {
-    color(35, 41, 4);
-    System.out.println("This is a frog.");
-    for (int r = 0; r < 200; r++) {
-      for (int g = 0; g < 150; g++) {
-        color(35, 37, 1);
-        System.out.println("-");
+  public static void draw() {
+    color(35, 41);
+    System.out.println("A visually colorful picture below:");
+    for (int r = 0; r < 256; r++) {
+      for (int g = 0; g < 153; g++) {
+        for(int b = 0; b <= 57; b++){
+          System.out.print("\u001b[38;2" + r + ";" + g + ";" + b + "m-");
+        }
       }
+      System.out.println();
     }
+    System.out.print("\u001b[0m");
   }
 }
