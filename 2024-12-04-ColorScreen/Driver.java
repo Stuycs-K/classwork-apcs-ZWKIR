@@ -11,15 +11,18 @@ public class Driver {
         Text.color(text, back);
         System.out.print(" ");
         System.out.print(Text.RESET);
-        int pixel_length = length - pixels(ary);
+        int pixel_length = length - pixels(ary) + 1;
         for (int a = 1; a <= pixel_length; a++) {
           if (a == 15) {
+            textColor(ary[0]);
             System.out.print(ary[0]);
           }
           else if (a == 38) {
+            textColor(ary[1]);
             System.out.print(ary[1]);
           }
           else if (a == 60) {
+            textColor(ary[2]);
             System.out.print(ary[2]);
           }
           else {
@@ -67,7 +70,19 @@ public class Driver {
         pixel++;
       }
     }
-    return pixel - 1;
+    return pixel;
+  }
+
+  public static void textColor(int num) {
+    if (num < 25) {
+      Text.color(Text.BRIGHT, Text.RED);
+    }
+    else if (num > 75) {
+      Text.color(Text.BRIGHT, Text.GREEN);
+    }
+    else {
+      Text.color(Text.WHITE);
+    }
   }
 
   public static void main(String[] args) {
