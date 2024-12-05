@@ -1,33 +1,33 @@
 public class Driver {
   public static void border(int text, int back, int height, int length) {
-    int count = 0;
     for (int i = 1; i <= height; i++) {
-      Text.color(text, 47);
+      Text.color(text, back);
       if (i == 1 || i == height) {
-        count = repeat(count, length);
+        repeat(length);
       }
       else {
-        System.out.println("");
+        Text.color(text, back);
         System.out.print(" ");
         System.out.print(Text.RESET);
-        count = repeat(count, length - 2);
-        Text.color(text, 44);
+        repeat(length - 2);
+        Text.color(text, back);
         System.out.print(" ");
       }
       System.out.print(Text.RESET);
+      System.out.println("");
     }
   }
 
-  public static int repeat(int count, int length) {
-    while (count < length) {
+  public static void repeat(int length) {
+    for (int i = 0; i < length; i++) {
       System.out.print(" ");
-      count++;
     }
-    count = 0;
-    return count;
   }
 
   public static void main(String[] args) {
-    border(30, 45, 5, 80);
+    //System.out.print(Text.HIDE_CURSOR);
+    border(Text.BLACK, Text.background(Text.BLUE), 30, 80);
+    System.out.print(Text.SHOW_CURSOR);
+    System.out.println(Text.RESET);
   }
 }
