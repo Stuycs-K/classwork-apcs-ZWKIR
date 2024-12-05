@@ -92,8 +92,22 @@ public class Driver {
     int[] ary = mkary();
     //System.out.print(Text.HIDE_CURSOR);
     border(Text.BLACK, Text.background(Text.CYAN), 30, 80, ary);
+    /*
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    */
     System.out.print(Text.SHOW_CURSOR);
-    //System.out.println(Text.RESET);
+    System.out.println("");
+    // The code below only works if you ran "clear" in terminal
+    // beforehand and then ran "javac Driver.java&& java Driver"
+    // because it goes to the line on the screen, not on
+    // each play
+    Text.go(32, 1); // must be at 32 because first line is
+    // a terminal command line
+    
     //System.out.println(Arrays.toString(ary));
   }
 }
