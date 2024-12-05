@@ -5,7 +5,9 @@ public class Driver {
     for (int i = 1; i <= height; i++) {
       Text.color(text, back);
       if (i == 1 || i == height) {
-        repeat(length);
+        for (int a = 0; a < length; a++) {
+          System.out.print("-");
+        }
       }
       else if (i == 2) {
         Text.color(text, back);
@@ -32,22 +34,23 @@ public class Driver {
         Text.color(text, back);
         System.out.print(" ");
       }
+      else if (i == 3) {
+        for (int a = 0; a < length; a++) {
+          System.out.print("+");
+        }
+      }
       else {
         Text.color(text, back);
         System.out.print(" ");
         System.out.print(Text.RESET);
-        repeat(length - 2);
+        for (int a = 0; a < length - 2; a++) {
+          System.out.print(" ");
+        }
         Text.color(text, back);
         System.out.print(" ");
       }
       System.out.print(Text.RESET);
       System.out.println("");
-    }
-  }
-
-  public static void repeat(int length) {
-    for (int i = 0; i < length; i++) {
-      System.out.print(" ");
     }
   }
 
@@ -88,9 +91,9 @@ public class Driver {
   public static void main(String[] args) {
     int[] ary = mkary();
     //System.out.print(Text.HIDE_CURSOR);
-    border(Text.BLACK, Text.background(Text.BLUE), 30, 80, ary);
+    border(Text.BLACK, Text.background(Text.CYAN), 30, 80, ary);
     System.out.print(Text.SHOW_CURSOR);
-    System.out.println(Text.RESET);
-    System.out.println(Arrays.toString(ary));
+    //System.out.println(Text.RESET);
+    //System.out.println(Arrays.toString(ary));
   }
 }
