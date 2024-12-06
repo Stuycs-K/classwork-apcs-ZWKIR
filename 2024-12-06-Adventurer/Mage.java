@@ -1,4 +1,18 @@
-public class Mage implements Adventurer {
+public class Mage extends Adventurer {
+  private String name;
+  private int HP,maxHP;
+
+  public Mage(String name){
+      super(name, 10);
+  }
+
+  public Mage(String name, int hp){
+    super(name, hp);
+    this.name = super.getName();
+    this.HP = super.getHP();
+    this.maxHP = super.getHP();
+  }
+
   /*
     all adventurers must have a custom special
     consumable resource (mana/rage/money/witts etc)

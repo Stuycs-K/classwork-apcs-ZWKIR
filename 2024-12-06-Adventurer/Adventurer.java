@@ -5,7 +5,6 @@ public abstract class Adventurer{
 
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
-
   public Adventurer(String name){
       this(name, 10);
   }
