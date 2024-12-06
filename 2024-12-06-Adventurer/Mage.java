@@ -42,15 +42,21 @@ public class Mage extends Adventurer {
     // random damage from 0-3
     Random rand = new Random();
     int damage = rand.nextInt(3);
-    other.setHP(other.getHP() - damage);
-    String lines = "You shot a magic bullet at " + other.getName() + ", causing " + damage + " damage."
-     + "\nYour HP: " + this.HP + "\n" + other.getName() + "'s HP: " + other.getHP();
-    return lines;
+    other.applyDamage(damage);
+    String lines = "You shot a magic bullet at " + other.getName() + ", causing " + damage + " damage.";
+    if (other.getHP() < 0) {
+      other.setHP(0);
+      return lines + "\n" + other.getName() + " has 0 HP left. You win the battle!" + "\n";
+    }
+    return lines + "\nYour HP: " + this.HP + "\n" + other.getName() + "'s HP: " + other.getHP() + "\n";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other) {
-    return "";
+    other.setHP(other.getHP() + 2);
+    String lines = "You have casted magic armor on " + other.getName() + ", providing 2 extra health points!\n"
+     + other.getName() + "'s HP: " + other.getHP() + "\n";
+    return lines;
   }
 
   //heall or buff self
