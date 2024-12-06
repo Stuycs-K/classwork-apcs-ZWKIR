@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Mage extends Adventurer {
   private String name;
   private int HP,maxHP;
@@ -19,7 +20,7 @@ public class Mage extends Adventurer {
   */
   //give it a short name (fewer than 13 characters)
   public String getSpecialName() {
-    return "";
+    return "mana";
   }
   //accessor methods
   public int getSpecial() {
@@ -38,7 +39,13 @@ public class Mage extends Adventurer {
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other) {
-    return "";
+    // random damage from 0-3
+    Random rand = new Random();
+    int damage = rand.nextInt(3);
+    other.setHP(other.getHP() - damage);
+    String lines = "You shot a magic bullet at " + other.getName() + ", causing " + damage + " damage."
+     + "\nYour HP: " + this.HP + "\n" + other.getName() + "'s HP: " + other.getHP();
+    return lines;
   }
 
   //heall or buff the target adventurer
