@@ -10,8 +10,17 @@ public class Driver {
     System.out.println(p1.support(p2));
     System.out.println(p1.specialAttack(p2));
     System.out.println(p2.support());
-    System.out.println("Current MP: " + p1.getSpecial() + "\n");
+
+    System.out.println("MP TESTING");
+    System.out.println("Leah's MP: " + p1.getSpecial() + "\n");
+    p1.restoreSpecial(11);
+    System.out.println("Leah's MP: " + p1.getSpecial() + "\n");
+    System.out.println(p1.specialAttack(p2));
+    p1.restoreSpecial(2);
+    System.out.println("Leah's MP: " + p1.getSpecial() + "\n");
+    System.out.println(p1.specialAttack(p2));
     p1.setSpecial(20);
-    System.out.println("Current MP: " + p1.getSpecial() + "\n");
+    System.out.println("Leah's MP: " + p1.getSpecial() + "\n");
+
   }
 }

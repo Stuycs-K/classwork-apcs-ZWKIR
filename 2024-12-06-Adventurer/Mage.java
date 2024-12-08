@@ -23,7 +23,12 @@ public class Mage extends Adventurer {
     return mana;
   }
   public void setSpecial(int n) {
-      mana = n;
+      if (n < getSpecialMax()) {
+        mana = n;
+      }
+      else {
+        mana = getSpecialMax();
+      }
   }
   public int getSpecialMax() {
     return 20;
@@ -75,6 +80,6 @@ public class Mage extends Adventurer {
       return lines + "\n" + other.getName() + " has 0 HP left. " + this.getName() + " has defeated " + other.getName() + "!" + "\n";
     }
     mana = mana - 5;
-    return lines + "\n" + this.getName() + "'s HP: " + this.getHP() + "\n" + other.getName() + "'s HP: " + other.getHP() + "\nCurrent MP: " + mana + "\n";
+    return lines + "\n" + this.getName() + "'s HP: " + this.getHP() + "\n" + other.getName() + "'s HP: " + other.getHP() + "\n" + this.getName() + "'s MP: " + mana + "\n";
   }
 }
