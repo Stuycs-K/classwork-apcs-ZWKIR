@@ -82,11 +82,10 @@ public class Mage extends Adventurer {
         other.setHP(0);
         return lines + "\n" + other + " has 0 HP left. " + this + " has defeated " + other + "!" + "\n";
       }
-      mana = mana - 5;;
       return lines;
     }
     else {
-      System.out.println(this + " does not have enough mana. Instead attacks." + attack(other));
+      System.out.println(this + " does not have enough mana. Instead " + attack(other));
     }
     return "";
   }
