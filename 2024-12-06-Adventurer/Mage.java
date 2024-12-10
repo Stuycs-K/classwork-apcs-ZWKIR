@@ -3,11 +3,15 @@ public class Mage extends Adventurer {
   private int mana = 15;
 
   public Mage(String name){
-    super(name, 10);
+    super(name, 25);
   }
 
   public Mage(String name, int hp){
     super(name, hp);
+  }
+
+  public Mage(){
+    this("Macy");
   }
 
   /*
@@ -23,12 +27,7 @@ public class Mage extends Adventurer {
     return mana;
   }
   public void setSpecial(int n) {
-      if (n < getSpecialMax()) {
-        mana = n;
-      }
-      else {
-        mana = getSpecialMax();
-      }
+    mana = n;
   }
   public int getSpecialMax() {
     return 20;
@@ -40,46 +39,55 @@ public class Mage extends Adventurer {
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other) {
-    // random damage from 0-3
+    // random damage from 1-4
     Random rand = new Random();
-    int damage = rand.nextInt(3);
+    int damage = rand.nextInt(3)+1;
     other.applyDamage(damage);
-    String lines = this.getName() + " has shot a magic bullet at " + other.getName() + ", causing " + damage + " damage.";
+    restoreSpecial(2);
+    String lines = this + " has shot a magic bullet at " + other + ", causing " + damage + " damage.";
     if (other.getHP() < 0) {
       other.setHP(0);
-      return lines + "\n" + other.getName() + " has 0 HP left. " + this.getName() + " has defeated " + other.getName() + "!" + "\n";
+      return lines + "\n" + other + " has 0 HP left. " + this + " has defeated " + other + "!" + "\n";
     }
-    return lines + "\n" + this.getName() + "'s HP: " + this.getHP() + "\n" + other.getName() + "'s HP: " + other.getHP() + "\n";
+    return lines;
   }
 
   //heal or buff the target adventurer
   public String support(Adventurer other) {
     other.setHP(other.getHP() + 2);
-    String lines = this.getName() + " has casted magic armor on " + other.getName() + ", providing 2 extra health points!\n"
-     + other.getName() + "'s HP: " + other.getHP() + "\n";
+    other.restoreSpecial(2);
+    restoreSpecial(2);
+    String lines = this + " has casted magic armor on " + other + ", providing 2 extra health points and restoring 2 mana!";
     return lines;
   }
 
   //heal or buff self
   public String support() {
-    setHP(this.getHP() + 2);
-    String lines = this.getName() + " has casted magic armor on themself, providing 2 extra health points!\n"
-     + this.getName() + "'s HP: " + this.getHP() + "\n";
+    setHP(getHP() + 2);
+    String lines = this + " has casted magic armor on themself, providing 2 extra health points and restoring 2 mana!";
+    restoreSpecial(2);
     return lines;
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
-    // random damage from 4-6
-    Random rand = new Random();
-    int damage = rand.nextInt(2) + 4;
-    other.applyDamage(damage);
-    String lines = this.getName() + " has shot an inferno at " + other.getName() + ", causing " + damage + " damage!";
-    if (other.getHP() < 0) {
-      other.setHP(0);
-      return lines + "\n" + other.getName() + " has 0 HP left. " + this.getName() + " has defeated " + other.getName() + "!" + "\n";
+    if (getSpecial() >= 5) {
+      // random damage from 4-6
+      Random rand = new Random();
+      int damage = rand.nextInt(2) + 4;
+      setSpecial(getSpecial() - 5);
+      other.applyDamage(damage);
+      String lines = this + " has shot an inferno at " + other + ", causing " + damage + " damage!";
+      if (other.getHP() < 0) {
+        other.setHP(0);
+        return lines + "\n" + other + " has 0 HP left. " + this + " has defeated " + other + "!" + "\n";
+      }
+      mana = mana - 5;;
+      return lines;
     }
-    mana = mana - 5;
-    return lines + "\n" + this.getName() + "'s HP: " + this.getHP() + "\n" + other.getName() + "'s HP: " + other.getHP() + "\n" + this.getName() + "'s MP: " + mana + "\n";
+    else {
+      System.out.println(this + " does not have enough mana. Instead attacks." + attack(other));
+    }
+    return "";
   }
 }
