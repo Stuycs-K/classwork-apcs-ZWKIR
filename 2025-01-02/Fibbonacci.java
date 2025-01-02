@@ -8,6 +8,8 @@ public class Fibbonacci {
   }
 
   public static void main(String[] args) {
-    System.out.println(fib(7));
+    // 46 is the largest fib number you can calculate under
+    // 10 sec; also the largest fib(n) that fits into an int
+    System.out.println(fib(46));
   }
 }
